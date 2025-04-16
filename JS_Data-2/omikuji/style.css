@@ -35,6 +35,18 @@ h2 {
     align-items: center;
 }
 
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    30% {transform: translateX(-10px);}
+    70% {transform: translateX(10px);}
+}
+
+.omikuji-img {
+    animation: shake 0.5s ease;
+    animation-iteration-count: 5;
+
+}
+
 .btn {
     border: none;
     border-radius: 10px;
