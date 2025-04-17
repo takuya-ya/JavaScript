@@ -41,10 +41,9 @@ h2 {
     70% {transform: translateX(10px);}
 }
 
-.omikuji-img {
+.shake {
     animation: shake 0.5s ease;
     animation-iteration-count: 5;
-
 }
 
 .btn {
