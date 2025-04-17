@@ -24,9 +24,16 @@ const omikuji=()=>{
     }
 }
 
-const btn = document.querySelector('.btn');
+const btn = document.querySelector('.omikuji-img');
+const shake = () => {
+    btn.classList.add('shake');
+}
 
-btn.addEventListener('click', omikuji);
+btn.addEventListener('click', shake);
+btn.addEventListener('animationend', () => {
+    btn.classList.remove('shake');
+    omikuji();
+});
 
 
 
