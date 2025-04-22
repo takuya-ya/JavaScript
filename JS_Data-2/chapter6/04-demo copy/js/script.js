@@ -17,12 +17,15 @@
 heading = document.querySelector('#heading');
 
 const keyframes = {
-  opacity : [0, 1],
-  translate : ['0 50px', 0]
+  // opacity : [0, 1],
+  // translate : ['0 50px', 0],
+  // rotate : ['x 360deg'],
+  color: ['transparent', '#fff'],
+  backgroundPosition: ['100% 0', '0 0']
 }
 
 const option = {
-  duration : 2000,
+  duration : 1000,
   easing : 'ease'
 }
 
