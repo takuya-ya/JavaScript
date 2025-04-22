@@ -10,6 +10,8 @@ const lists = [
     'apple.jpg',
 ];
 
+
+
 // const content = 
 // `<div><img src="images/${lists[0]}" alt=""></div>
 // <div><img src="images/${lists[1]}" alt=""></div>
@@ -43,3 +45,17 @@ for (i = 1; i <= 30; i++) {
         console.log(i);
     }
 }
+
+update = () => {
+    const now = new Date(); //初期化 (new)する
+    const year = now.getFullYear();
+    // const   = now.get ();
+    // const   = now.get ();
+    const min = now.getMinutes();
+    const second  = now.getSeconds ();
+    const output = `${year}/${min}/${second}`;
+    document.querySelector('#time').textContent = output;
+}
+
+setInterval(update, 1000);
+update();
