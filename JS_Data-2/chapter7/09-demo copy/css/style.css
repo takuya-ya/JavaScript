@@ -117,6 +117,7 @@ SLIDE MENU
     right: 0;
     z-index: 4;
     padding: 8rem 2rem 2rem;
+    /* max 大きい方を選ぶ関数 */
     width: max(32vw, 20rem);
     height: 100vh;
     background-color: var(--brown);
