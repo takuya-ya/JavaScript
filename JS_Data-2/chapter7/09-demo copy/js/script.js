@@ -1,11 +1,8 @@
 /*
 ローディングから画面遷移
 ================================================ */
-// @ts-ignore
 const loadingAreaGrey = document.querySelector('#loading');
-// @ts-ignore
 const loadingAreaGreen = document.querySelector('#loading-screen');
-// @ts-ignore
 const loadingText = document.querySelector('#loading p');
 
 window.addEventListener('load', () => {
@@ -59,15 +56,11 @@ window.addEventListener('load', () => {
 /*
 画像ギャラリー
 ================================================ */
-
-// @ts-ignore
 const mainImage = document.querySelector('.gallery-image img');
-// @ts-ignore
 const thumbImages = document.querySelectorAll('.gallery-thumbnails img');
 
 thumbImages.forEach((thumbImage)=>{
   thumbImage.addEventListener('mouseover', (event) => {
-    // @ts-ignore
     mainImage.src = event.target.src;
     mainImage.animate({opacity: [0, 1]}, 500);
   });
@@ -77,15 +70,10 @@ thumbImages.forEach((thumbImage)=>{
 スライドメニュー
 ================================================ */
 /* ----- ↓↓ 追加 ↓↓ ----- */
-// @ts-ignore
 const menuOpen = document.querySelector('#menu-open');
-// @ts-ignore
 const menuClose = document.querySelector('#menu-close');
-// @ts-ignore
 const menuPanel = document.querySelector('#menu-panel');
-// @ts-ignore
 const menuItems = document.querySelectorAll('#menu-panel li');
-// @ts-ignore
 const menuOptions = {
   duration: 1400,
   easing: 'ease',
@@ -94,7 +82,6 @@ const menuOptions = {
 
 // メニューを開く
 menuOpen.addEventListener('click', () => {
-  // @ts-ignore
   menuPanel.animate({translate: ['100vw', 0]}, menuOptions);
 
   // リンクをひとつずつ順に表示
@@ -103,7 +90,6 @@ menuOpen.addEventListener('click', () => {
     menuItem.animate(
       {
         opacity: [0, 1],
-        // @ts-ignore
         translate: ['2rem', 0],
       },
       {
@@ -118,10 +104,8 @@ menuOpen.addEventListener('click', () => {
 
 // メニューを閉じる
 menuClose.addEventListener('click', () => {
-  // @ts-ignore
   menuPanel.animate({translate: [0, '100vw']}, menuOptions);
   menuItems.forEach((menuItem) => {
-    // @ts-ignore
     menuItem.animate({opacity: [1, 0]}, menuOptions);
   });
 });
