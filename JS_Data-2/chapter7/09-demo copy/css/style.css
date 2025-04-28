@@ -123,6 +123,7 @@ SLIDE MENU
     background-color: var(--brown);
     box-shadow: 0 0 2rem var(--brown);
     font-family: var(--oswald-font);
+    /* 100vwにしてるが30vw程度で十分隠れる */
     translate: 100vw;
 }
 .menu-list {
@@ -130,6 +131,7 @@ SLIDE MENU
 }
 .menu-list li {
     margin: 1.5rem 0;
+    /* 通常は隠す */
     opacity: 0;
 }
 .menu-list a {

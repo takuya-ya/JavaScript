@@ -115,7 +115,8 @@ thumbImages.forEach((thumbImage)=>{
 const menuOpen = document.querySelector('#menu-open');
 const menuClose = document.querySelector('#menu-close');
 const menuPanel = document.querySelector('#menu-panel');
-const menuItems = document.querySelector('#menu-panel li');
+// fix:querySelectorAllになっておらず、配列として取得できてない
+const menuItems = document.querySelectorAll('#menu-panel li');
 
 // オブジェクトプロパティ
 const menuOptions = {
@@ -125,16 +126,29 @@ const menuOptions = {
 }
 
 menuOpen.addEventListener('click', () => {
-  menuPanel.animate({
-      translate: ['100vw', 0],
-  } ,
-  menuOptions);
+  menuPanel.animate({translate: ['100vw', 0]}, menuOptions);
+  // JavaScriptのforEach → オブジェクトのメソッドだからキャメルケース（小→大）
+    // PHPのforeach → 言語に組み込まれた文法だから小文字
+  // indexは配列番号。foreachの第二引数に自動で入る
+    menuItems.forEach((menuItem, index) => {
+    console.log(`${index}番目:${menuItem}`);
+    menuItem.animate(
+      {
+        opacity: [0, 1],
+        translate: ['2rem', 0],
+      }, {
+        duration:2400,
+        easing: 'ease',
+        delay: 300 * index,
+        fill: 'forwards',
+      }
+    );
+  });
 });
-
+  
 menuClose.addEventListener('click', () => {
-  menuPanel.animate({
-      translate: [0, '100vw'],
-  } ,
-  menuOptions);
+  menuPanel.animate({translate: [0, '100vw']}, menuOptions);
+  menuItems.forEach((menuItem) => { menuItem.animate({opacity: [1, 0]}, 
+  menuOptions)})
 });
 
