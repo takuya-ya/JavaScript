@@ -9,8 +9,9 @@
 let enemy = 100;
 
 while (enemy > 0) {
+    // constにしているが、while文内でのみ有効。次のループには引き継がれない引き継がれない
     // +1で出力を1~30にしている。これがないと0~29しかでない。0が続いてしまうとバグになる（理論上あり得る）。
-    attack = Math.floor(Math.random() * 30) + 1;
+    const attack = Math.floor(Math.random() * 30) + 1;
     enemy -= attack;
 
     console.log(`モンスターに${attack}のダメージ`);
