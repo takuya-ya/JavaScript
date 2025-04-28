@@ -125,6 +125,7 @@ const menuOptions = {
   fill: 'forwards',  
 }
 
+// メニューを開く
 menuOpen.addEventListener('click', () => {
   menuPanel.animate({translate: ['100vw', 0]}, menuOptions);
   // JavaScriptのforEach → オブジェクトのメソッドだからキャメルケース（小→大）
@@ -145,10 +146,45 @@ menuOpen.addEventListener('click', () => {
     );
   });
 });
-  
+
+// メニューを閉じる
 menuClose.addEventListener('click', () => {
   menuPanel.animate({translate: [0, '100vw']}, menuOptions);
   menuItems.forEach((menuItem) => { menuItem.animate({opacity: [1, 0]}, 
   menuOptions)})
 });
 
+// 監視対象が範囲内に出現した場合の処理,
+  // 第二引数にはロボ自身が入る。fadeOvserverでは混乱する為、慣習名o
+const animateFade = (entries, obs) => {
+  entries.forEach((entry) => {
+    // 今のままだと「入った・出た」両方反応してる。交差時のみ実行したい。
+    // console.log(entry.target);
+    if (entry.isIntersecting) {
+      // console.log(entry.target);
+      entry.target.animate({
+        opacity: [0, 1],
+        filter: ['blur(.4rem)', 'blur(0)'],
+        translate: ['0 50px', 0],
+
+      }, {
+        duration: 2000,
+        easing: 'ease',
+        fill: 'forwards',
+      })
+      obs.unobserve(entry.target);
+    };
+  });
+}
+
+// 監視設定
+const fadeObserver = new IntersectionObserver(animateFade);
+
+// .fadeinを監視するよう指示
+const fadeElements = document.querySelectorAll('.fadein');
+// 誤 fadeElements.forEach('fadeElement', () => {~}
+  // foreachの第一引数は関数にすること 修正して無名関数を設定。しかもfadeElementは関数なので''で文字列化は不要
+fadeElements.forEach((fadeElement) => {
+  fadeObserver.observe(fadeElement);
+}
+);
