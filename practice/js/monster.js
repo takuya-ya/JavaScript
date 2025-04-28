@@ -7,18 +7,25 @@
 // ユーザーの攻撃には1~30の整数がランダムに入る
 
 let enemy = 100;
+// 誤　let count = 1;
+let count = 0;
 
 while (enemy > 0) {
     // constにしているが、while文内でのみ有効。次のループには引き継がれない引き継がれない
     // +1で出力を1~30にしている。これがないと0~29しかでない。0が続いてしまうとバグになる（理論上あり得る）。
     const attack = Math.floor(Math.random() * 30) + 1;
     enemy -= attack;
-
+    
+    // 誤　console.log(`${count}回目の攻撃`)
+    console.log(`${count + 1}回目の攻撃`)
     console.log(`モンスターに${attack}のダメージ`);
-    console.log(enemy);
+    // 誤　if (enemy <= 0) {
+    //     console.log(`${count}回目の攻撃でモンスターを倒しました`);
+    // }
+    count++;
 }
+// 下記がwhileの外なので、countがスコープ外かと思っていた。しかし、whileの外で定義しているので、外で使用できる。
+console.log(`${count}回目の攻撃でモンスターを倒しました`);
 
-console.log('モンスターを倒しました');
 // -------------------------------------------
-
 }
