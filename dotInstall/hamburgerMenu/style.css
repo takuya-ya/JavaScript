@@ -1,0 +1,24 @@
+body {
+    margin:0;
+    font-family: Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    padding: 0 16px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 64px;
+}
+
+.sp-menu {
+    margin-left: auto;
+}
+
+.sp-menu #open {
+    font-size: 64px;
+
+}
