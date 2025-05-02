@@ -1,5 +1,5 @@
 body {
-    margin:0;
+    margin: 0;
     font-family: Verdana, sans-serif;
 }
 
@@ -19,6 +19,50 @@ header h1 {
 }
 
 .sp-menu #open {
-    font-size: 64px;
+    font-size: 32px;
+    line-height: 64px;
+    cursor: pointer;
+}
+
+
+.sp-menu #open.hide {
+    display: none;
+}
+
+main {
+    padding: 0 16px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, .95);
+    text-align: center;
+    padding: 64px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto ;
+}
+
+.overlay #close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.overlay ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.overlay li {
+    margin-top: 24px;
 
 }
