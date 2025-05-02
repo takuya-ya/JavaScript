@@ -31,7 +31,7 @@ section {
     height: 3px;
     background: white;
     border-radius: 2px;
-    transition: 0.3s ease;
+    transition: .3s ease;
     transform-origin: center;
 }
 
@@ -48,20 +48,21 @@ section {
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
+    transform: rotate(45deg) ;
+    /* 要素のcenterが上から11pxの位置になる */
     top: 11px;
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+    display: none;
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) ;
+    /* 要素のcenterが上から11pxの位置になる */
     top: 11px;
 }
 
-/* メニュー */
 .menu {
     position: fixed;
     top: 0;
@@ -83,28 +84,23 @@ section {
     text-decoration: none;
     padding: 15px 20px;
     font-size: 18px;
-    transition: background 0.3s;
-}
-
-.menu a:hover {
-    background: #555;
 }
 
 .menu.active {
     transform: translateX(0);
-    /* メニューを左から右にスライド */
     opacity: 1;
     pointer-events: auto;
-    /* メニューが表示されたときにクリックを有効化 */
+    animation: slideIn .5s ease forwards;
+
 }
 
 .menu.close {
     transform: translateX(-100%);
-    /* メニューを左にスライド */
     opacity: 0;
     pointer-events: none;
-    /* メニューが閉じている間はクリック無効 */
+    animation: slideOut .5s ease forwards;
 }
+
 
 @keyframes slideIn {
     0% {
@@ -112,13 +108,19 @@ section {
         opacity: 0;
     }
 
-    60% {
+    40% {
         transform: translateX(10%);
         opacity: 1;
     }
 
-    80% {
+    60% {
         transform: translateX(-5%);
+    }
+
+    /* もう一回バウンドさせてみただけ */
+    80% {
+        transform: translateX(10%);
+        opacity: 1;
     }
 
     100% {
@@ -141,4 +143,25 @@ section {
 .copyright {
     text-align: center;
     font-weight: bold;
+} 
+
+/* 
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: background 0.3s;
 }
+
+.menu a:hover {
+    background: #555;
+}
+
+.menu.close {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+*/
