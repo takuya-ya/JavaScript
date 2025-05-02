@@ -4,8 +4,10 @@ const images = document.querySelectorAll('.lazy');
 const observer = new IntersectionObserver((entries, observer) => {
     console.log(entries);
     entries.forEach(entry => {
+        // 交差するのはどこだっけ
         if (entry.isIntersecting) {
             const img = entry.target;
+            // この段階でsrcに画像パスが入る imgのsrc属性を追加し、属性の値（htmlのパスをtargetで取得してそれをまたhtmlに入れている）を代入
             img.src = img.dataset.src;
             img.addEventListener('load', () => {
                 img.classList.add('loaded')
@@ -17,7 +19,13 @@ const observer = new IntersectionObserver((entries, observer) => {
     threshold: 0.1
 });
 
+// img毎に監視指定
 images.forEach(img => observer.observe(img));
+// ↑の関数部分を略している。正式には↓
+// images.forEach(function(img) {
+//     return observer.observe(img);
+//   });
+  
 
 //IOが発火したとき、IntersectionObserverEntry オブジェクトの配列が渡されます（entries）。この配列には、監視対象の要素（ターゲット）がどのように交差しているかの情報が含まれています。
 
