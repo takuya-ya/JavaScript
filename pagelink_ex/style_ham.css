@@ -1,0 +1,144 @@
+@charset 'utf-8';
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #222;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 100vh;
+    padding: 50px;
+    border-bottom: 1px solid #444;
+}
+
+.hamburger {
+    width: 30px;
+    height: 25px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 11px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 22px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 11px;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 11px;
+}
+
+/* メニュー */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.menu a:hover {
+    background: #555;
+}
+
+.menu.active {
+    transform: translateX(0);
+    /* メニューを左から右にスライド */
+    opacity: 1;
+    pointer-events: auto;
+    /* メニューが表示されたときにクリックを有効化 */
+}
+
+.menu.close {
+    transform: translateX(-100%);
+    /* メニューを左にスライド */
+    opacity: 0;
+    pointer-events: none;
+    /* メニューが閉じている間はクリック無効 */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.copyright {
+    text-align: center;
+    font-weight: bold;
+}
