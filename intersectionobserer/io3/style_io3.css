@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.spacer {
+    height: 100vh;
+}
+
+.ad-banner {
+    background: #ffcc00;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 800px;
+    width: 80%;
+    border-radius: 8px;
+}
