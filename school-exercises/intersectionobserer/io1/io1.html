@@ -11,12 +11,13 @@
     <script src="./io1.js" defer></script>
 </head>
 
-
 <body>
 
     <div class="image-container">
         <!-- data属性で画像を隠蔽し、出現タイミングを制御 -->
          <!-- data-srcの-はケバブケース。jsではdataSrcで取得 -->
+         <!-- data-とつく属性はHTMLには表示されない、jsに取得させる為のデータ -->
+          <!-- 今回srcとあるがこの部分のワードは自由。data-freeでも問題ない -->
         <img data-src="./img/IMG_7707.JPG" alt="画像1" class="lazy">
     </div>
     <div class="image-container">

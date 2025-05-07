@@ -1,13 +1,13 @@
 
 const images = document.querySelectorAll('.lazy');
 
+// entriesには、ビューポートに入ったobserveしている要素の情報群
 const observer = new IntersectionObserver((entries, observer) => {
     console.log(entries);
     entries.forEach(entry => {
-        // 交差するのはどこだっけ
         if (entry.isIntersecting) {
             const img = entry.target;
-            // この段階でsrcに画像パスが入る imgのsrc属性を追加し、属性の値（htmlのパスをtargetで取得してそれをまたhtmlに入れている）を代入
+            // この段階でhtmlのsrcに画像パスが入る imgのsrc属性を追加し、属性の値（htmlのパスをtargetで取得してそれをまたhtmlに入れている）を代入
             img.src = img.dataset.src;
             img.addEventListener('load', () => {
                 img.classList.add('loaded')
@@ -16,6 +16,8 @@ const observer = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
+    // ここから第二引数。第一の処理の発動タイミングについて指定
+    // 交差判定のしきい値 要素が10%交差したら、という意味
     threshold: 0.1
 });
 
