@@ -25,7 +25,9 @@ const markers = document.querySelectorAll('.read-marker');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // 交差した要素に直近のaccordionクラスを取得して代入
             const accordion = entry.target.closest('.accordion');
+            // 取得したクラスの要素のIDを取得し、下記で出力する
             const sectionId = accordion.dataset.id;
 
             console.log(`✅ セクション ${sectionId} を読了！`);
