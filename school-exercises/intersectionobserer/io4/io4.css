@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+.accordion {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 10px 16px;
+    background: #eee;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.accordion-header .read-status {
+    color: green;
+    font-size: 1.2em;
+    display: none;
+}
+
+.accordion.read .accordion-header .read-status {
+    display: inline;
+}
+
+.accordion-content {
+    background: #fefefe;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 16px;
+}
+
+.accordion.open .accordion-content {
+    padding: 10px 16px;
+    max-height: 500px;
+    /* 適宜調整 */
+}
+
+.read-marker {
+    height: 1px;
+    margin-top: 30px;
+    background: transparent;
+}
