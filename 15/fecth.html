@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="format-detection" content="telephone=no">
+    <title>非同期処理</title>
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <div class="result"></div>
+  
+    <script>
+      fetch('http://127.0.0.1:5500/sample.json').then((result) => {
+        return result.json(); // jsonファイルを取得
+      }).then((json) => {
+        const result = document.querySelector('.result');
+        result.textContent = json.text;
+        //result.textContent = json.name;
+        //result.textContent = json.languages[2];
+      });
+      </script>
+      
+      <!-- 
+      🔄 処理の流れ（fetch() ～ JSON表示まで）
+        fetch(url) を実行
+        → Promise<Response> を返す。
+
+        .then(response => response.json())
+        → レスポンス（文字列）を JSオブジェクトに変換（Promise<object> を返す）。
+
+        .then(data => {...})
+        → 変換された JSON オブジェクトを受け取り、画面に表示などの処理を実行。
+
+        👇コード例
+        fetch('sample.json')                     // ① Promise<Response>
+          .then(response => response.json())     // ② Promise<object>
+          .then(data => {
+            console.log(data);                   // ③ JSオブジェクトとして使用
+          });
+        要点：すべて 非同期（Promise）、JSONは最初「文字列」で届くのでパースが必要。 
+      -->
+  </body>
+</html>
