@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="format-detection" content="telephone=no">
+    <title>practiceTest</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+
+        //1
+        const friends = ['Aki', 'Hiro', 'Yuna'];
+        console.log(friends[1]);
+
+        //2
+        const scores = [85, 70, 55, 90];
+        for (let i = 0; i < scores.length; i++) {
+            // console.log(scores[i]);
+            if (scores[i] >= 80) {
+                console.log(`${scores[i]}点:　優秀`);
+            } else if (scores[i] >= 60) {
+                console.log(`${scores[i]}点:　合格`);
+            } else {
+                console.log(`${scores[i]}点:　再試`);
+            }
+        }
+
+        //3
+        const month = 3;
+        //条件がtrueになるcaseを選んで実行する
+        switch (true) {
+            case (month === 12 || month === 1 || month === 2):
+                console.log("冬"); 
+                break;
+            case (month >= 3 && month <= 5):
+                console.log("春");
+                 break;
+            case (month >= 6 && month <= 8):
+                console.log("夏");
+                 break;
+            case (month >= 9 && month <= 11):
+                console.log("秋"); 
+                break;
+        }
+
+        //4
+        let i = 1;
+        let sum = 0;
+        while (i <= 100) {
+            if (i % 3 !== 0) {
+                i++;
+                continue;
+            }
+            sum += i;
+            console.log(`${i},ごうけい：${sum}`);
+            if (sum > 100){
+             break;   
+            }
+            //if文の｛｝は省略できる　ただし処理が一行の時に限る
+            //見やすさの観点から、この場合if(sum >100){break;}と書いたほうが良い
+            i++;
+        }
+
+
+        //5
+        const user = { 
+            name: "Mika",
+            age: 28,
+            job: "Designer"
+        };
+        console.log(user.name);
+        console.log(user.age);
+        console.log(user.job);
+
+        //6
+        const fruits = [
+            "apple",
+            "banana",
+            "orange"
+        ];
+        fruits.forEach(fruit => {
+            console.log(fruit);
+        });
+
+        //7
+        const str = "tiger";
+        for (const char of str) {
+            console.log(char);
+        }
+
+        //8
+
+        const age = 19;
+        const result = age >= 20? "飲酒可"
+            : age >= 18? "成人（飲酒不可）": "未成年";
+
+        console.log(result);
+
+        //9
+
+        const users = [
+            { name: "Taro", age: 21 },
+            { name: "Hanako", age: 17 },
+            { name: "Ken", age: 19 }
+        ];
+
+        users.forEach(user => {
+            const status = user.age >= 18 ? "成人" : "未成年";
+            console.log(`${user.name}は${status}です`);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
