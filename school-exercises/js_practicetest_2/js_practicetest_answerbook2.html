@@ -142,6 +142,7 @@ console.log(`サイコロの出目: ${dice}`);
         
         <button id="btn">クリックしてね</button>
 
+        
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', ()=> {
         alert('クリックされました');
@@ -153,9 +154,10 @@ console.log(`サイコロの出目: ${dice}`);
         function now() {
         const current = new Date();
         console.log(current.toString());
-        }
+        } 
 
-        使用例
+        
+   <--     使用例
         now();
         → 例：Mon May 13 2025 14:55:10 GMT+0900 (日本標準時)
 
@@ -200,11 +202,12 @@ console.log(`サイコロの出目: ${dice}`);
             for (let i = 0; i < photo.length; i++) {
                 html += `<img src="image/${photo[i]}" alt="写真${i + 1}" style="width:200px; margin:10px;">`;
             }
+            
             // innerHTML =	文字列で中身全体を置き換える（速いが危険）
             // appendChild()	要素（Node）を1つだけ追加
             // append()	要素も文字列も追加可能（複数可）
 
-            container.innerHTML = html;          
+            container.innerHTML = html;
         </script>
     </body>
 
