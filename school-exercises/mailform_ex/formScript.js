@@ -12,6 +12,7 @@ document.querySelector("#contactForm").addEventListener("submit", (event) => {
         category: document.querySelector("#category-error"),
         message: document.querySelector("#message-error")
     };
+
     // エラーメッセージを初期化
     // for...in文
     for (let key in errors) {
@@ -56,4 +57,3 @@ document.querySelector("#contactForm").addEventListener("submit", (event) => {
         console.log("送信データ:", Object.fromEntries(data.entries()));//formData.entries　キーと値のペアを、繰り返し可能なイテレーターとして取得
         form.reset();
     }
-});
