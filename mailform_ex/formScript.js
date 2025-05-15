@@ -12,7 +12,6 @@ document.querySelector("#contactForm").addEventListener("submit", (event) => {
         category: document.querySelector("#category-error"),
         message: document.querySelector("#message-error")
     };
-
     // エラーメッセージを初期化
     // for...in文
     for (let key in errors) {
