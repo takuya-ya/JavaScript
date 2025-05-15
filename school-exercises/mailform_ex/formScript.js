@@ -57,4 +57,3 @@ document.querySelector("#contactForm").addEventListener("submit", (event) => {
         console.log("送信データ:", Object.fromEntries(data.entries()));//formData.entries　キーと値のペアを、繰り返し可能なイテレーターとして取得
         form.reset();
     }
-});
