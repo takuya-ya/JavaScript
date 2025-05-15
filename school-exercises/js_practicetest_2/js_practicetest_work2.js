@@ -1,0 +1,161 @@
+'use scrip';
+
+{
+  const cl = console.log;
+// ; 問１．以下の条件に合うコード（文）を作成する
+// ; a. 『表示テスト』の文字列をアラートダイアログボックスに表示するコードを記入せよ。
+// alert('表示テスト');
+
+// ; b. ID "choice" 要素を取得するコードを記入せよ。
+// const choice = document.querySelector('#choice');
+
+// ; c. ダイアログボックスに「18才以上か」を尋ね、「以上」「未満」のボタンで答え、選択結果に応じて
+// ; コンソールに「購入可能」または「購入不可」を表示させるコードを記入せよ。
+// ; (ヒント：confirm(‘18歳以上ですか？’) confirmメソッドは、確認ダイアログを表示して、
+// ; OKを押すとtrue、キャンセルを押すとfalseになる）
+
+// let bool = confirm('18才以上ですか'); 
+
+// if( bool ) {
+//   cl('購入可能') ;
+// } else {
+//   cl('購入不可');
+// }
+
+
+// ; d. 変数 answer に数値 158 を代入するコードを記入せよ。
+// ; e. 定数 price を 15000 に設定するコードを記入せよ。
+
+// ; f. サイコロ（1〜6までの整数）をランダムに表示するコードを記入せよ。
+// let dice = Math.floor(Math.random() * 6 + 1);
+// cl(dice);
+
+
+// ; 問２． 任意の変数priceがある。以下の条件を満たすコードを記載せよ
+// ; ・変数price が 100000 以上の場合、’30％オフ’とアラートボックスに表示
+// ; ・100000 未満 80000 以上の場合、’15％オフ’とアラートボックスに表示
+// ; ・80000 未満50000以上の場合、’10％オフ’とアラートボックスに表示
+// ; ・50000 未満の場合、’5％オフ’とアラートボックスに表示
+
+// ; 問３． 配列に関する問い
+// ; a. 次の文字列から、「、」 で区切って配列membersを作れ
+// ; const lineup =‘桑原、関根、佐野、牧、宮崎、筒香、山本、京田、東’
+// ;  b. 配列 members の中から’牧’をコンソールに表示
+// ; c. 配列 members の最後尾に’三浦’を追加
+// ; d. 配列 members の要素をすべてコンソールに表示
+
+// ; 問４． 以下の関数に関わる内容のコードを記載せよ
+// ; a.仮引数 price の消費税（10％）込み価格をコンソールに表示する関数
+// ; total
+
+// ;  b. ID”btn”をクリックすると、アラートボックスに’クリックされました’と表
+// ; 示される関数式。
+
+// ; c. 現在の日時をコンソールに表示させる関数now
+    //  function now() {
+    //     const current = new Date();
+    //     console.log(currenttoString());
+    //     } 
+        
+    //     now();
+
+// ;  d. 仮引数 name と age を持ち、コンソールに「name さんの年齢は
+// ; age 歳です」という文字列を出力する関数showProf
+// ; 尚、文字列の生成にはテンプレート文字列を使用
+
+
+// ; 問5.
+// ; 要素数５の配列photoがある。
+// ; 要素はそれぞれ
+// ; photo1.jpg,
+// ;  photo2.jpg ,
+// ;  photo3.jpg ,
+// ;  photo4.jpg ,
+// ;  photo5.jpg の五個とする。
+// ; これらはimageフォルダに格納されている。
+// ; これらをJavaScript 上で img タグを生成し読み込むコードを記載せよ。
+
+// imgタグを生成
+// img.srcにソース設定
+// htmlにimg追加
+
+// const photos = [
+//   "photo1.jpg",
+//   "photo2.jpg",
+//   "photo3.jpg",
+//   "photo4.jpg",
+//   "photo5.jpg"
+// ];
+
+// const container = document.querySelector('#gallery');
+
+// photos.forEach( photo => {
+//   let img = document.createElement('img');
+//   img.src = `./image/${photo}`;
+//   container.appendChild(img);
+// })
+
+// ; 問6.
+
+// ; 次のHTML コードがあります。
+// ; <div class="person"> 要素に、ユーザーID、ユーザー名、ユーザーコストというデータ属性が含まれています。
+
+// ; <div class="person" data-user-id="300" data-user-name="Nekosuki" data-user-cost="15080"></div>
+// ;  <div class="person" data-user-id="301" data-user-name="Takahashi" data-user-cost="20000"></div>
+// ;  <div class="person" data-user-id="302" data-user-name="Yamamoto" data-user-cost="18000"></div>
+
+// ;  a.すべての.person 要素から、ユーザーID、ユーザー名、ユーザーコストの情報を取得し、
+// ; 配列としてまとめてください。
+// ; 取得したデータをコンソールに表示させ、以下のように表示されることを確認してください
+
+  // ; [  
+  // ;  { userId: "300", userName: "Nekosuki", userCost: "15080" },
+  // ;  { userId: "301", userName: "Takahashi", userCost: "20000" },
+  // ;  { userId: "302", userName: "Yamamoto", userCost: "18000" }
+  // ;  ]
+
+let  usersDate= [];
+const persons = document.querySelectorAll('.person');
+
+persons.forEach(person => {
+  usersDate.push(
+    {
+      userId: person.dataset.userId,
+      userName: person.dataset.userName,
+      userCost: person.dataset.userCost,
+    }
+  )
+})
+
+// ; 問6-ｂに続く
+// ; ｂ. html上に 「ユーザー情報を表示する」ボタンを作成し、そのボタンを
+// ; クリックすると、すべてのユーザー情報（ユーザー名とコスト）を一覧表示する機能を作成してください。
+// ; ※表示の形式は次のようにしてください
+// Nekosuki のコストは 15080 円です。
+// Takahashi のコストは 20000 円です。
+// Yamamoto のコストは 18000 円です。
+
+let button = document.querySelector('#btnUserInfo');
+let result = document.querySelector('#result');
+
+button.addEventListener('click', () => {
+  // buttonの下のpタグをリセット
+  result.innerHTML = '';
+
+  // テキスト用の表示テキストを作成
+  usersDate.forEach( userData => {
+    const p = document.createElement('p');
+    let name = userData.userName;
+    let cost = userData.userCost;
+    let userInfo = `${name}のコストは${cost}円です`;
+    p.textContent = userInfo;
+    result.append(p);
+  })
+  // pタグを作成
+});
+
+// pタグにテキスト挿入
+// pタグをhtmlに追加 appendChild
+// 
+// 
+}
