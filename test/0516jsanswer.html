@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="format-detection" content="telephone=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <!-- 問4 -->
+
+    <h2>スマホケース在庫一覧</h2>
+    <ul id="product-list"></ul>
+
+    <!-- 問4ここまで -->
+
+    <!-- 問6. -->
+
+    <h2>5歳以上の動物一覧</h2>
+    <ul id="animal-list"></ul>
+
+    <!-- 問6ここまで -->
+
+    <script>
+        //問1.
+        //1-a.
+        const tax = 0.1;
+
+        //1-b.
+        let count = 0;
+
+        //1-c.
+        let name = '太郎';
+        console.log(`こんにちは、${name}さん`);
+        console.log('こんにちは、' + name + 'さん');
+
+        //1-d.
+        const add = (a, b) => a + b;
+
+        //1-e.
+        let num = 4;
+        if (num % 2 === 0) {
+            console.log('偶数です');
+        } else {
+            console.log('奇数です');
+        }
+
+        //1-f.
+        const colors = ['赤', '緑', '青', '黄', '白',]
+
+        //1-g.
+
+
+        //1-h.
+        let diceA = Math.floor(Math.random() * 6) + 1;
+        let diceB = Math.floor(Math.random() * 6) + 1;
+
+        console.log(`diceAの目: ${diceA}`);
+        console.log(`diceBの目: ${diceB}`);
+
+
+        //問1ここまで
+
+        //問2.
+        const bullpens = '伊勢/森原/坂本/入江/中川/宮城/颯/山崎';
+
+        //2-a.
+        const pitchers = bullpens.split('/');
+        console.log(pitchers);
+
+        //2-b.
+        pitchers.pop();
+        console.log(pitchers);
+
+        //2-c.
+        pitchers.push('三嶋');
+        console.log(pitchers);
+
+        //2-d.
+        pitchers.unshift('佐々木');
+        console.log(pitchers);
+
+        //2-e.
+        pitchers[5] = '石田';
+        console.log(pitchers);
+
+        //問2.ここまで
+
+        //問3.
+        //3-a
+        const scores = [45, 72, 88, 59, 63];
+
+        scores.forEach(score => {
+            if (score >= 60) {
+                console.log(score);
+            }
+        });
+
+        //3-b
+        for (let i = 1; i <= 30; i++) {
+            if (i % 2 !== 0) {
+                console.log(i);
+            }
+        };
+
+        //3-c
+        const forNames = ['えびな', 'かじわら', 'せきね', 'くわはら', 'かつまた',];
+        forNames.forEach(name => {
+            if (name.length >= 4) {
+                console.log(name);
+            }
+        });
+
+        //別解
+        for (let i = 0; i < forNames.length; i++) {
+            if (forNames[i].length >= 4) {
+                console.log(forNames[i]);
+            }
+        }
+
+        for (const name of forNames) {
+            if (name.length >= 4) {
+                console.log(name);
+            }
+        }
+
+        //3-d.
+        for (let i = 1; i <= 100; i++) {
+            if (i % 2 !== 0) {
+                continue
+            }
+
+            if (i % 3 === 0 && i % 5 === 0) {
+                console.log('ループを中断します');
+                break;
+            }
+
+            console.log(i);
+        }
+
+        //問3ここまで
+
+        //問4.
+
+        const products = [
+            { name: "ちいかわ", stock: 10 },
+            { name: "ハチワレ", stock: 0 },
+            { name: "うさぎ", stock: 5 },
+            { name: "モモンガ", stock: 0 },
+            { name: "シーサー", stock: 3 },
+            { name: "ラッコ", stock: 8 },
+            { name: "くりまんじゅう", stock: 6 },
+        ];
+
+        //①～⑥の数字を、問題文の選択肢から選んだ語句に書き替え完成させよう
+        //尚、解答に際しコメントアウト記号//を削除すること
+
+        const pList = document.querySelector("#product-list");
+
+        products.forEach(product => {
+            if (product.stock > 0) {
+                pList.innerHTML += `<li>${product.name}（在庫: ${product.stock}）</li>`;
+            } else {
+                pList.innerHTML += `<li>${product.name} (在庫なし)</li>`;
+            }
+        });
+
+        //問4ここまで
+
+        //問5.
+
+        //5-a
+        const students = [
+            { name: '松尾', score: 85 },
+            { name: '山本', score: 72 },
+            { name: '戸柱', score: 90 },
+            { name: '九鬼', score: 65 },
+        ];
+
+        //5-b
+        for (let i = 0; i < students.length; i++) {
+            const grade = students[i].score >= 90 ? "優" :
+                students[i].score >= 80 ? "良" :
+                    students[i].score >= 60 ? "可" : "不可";
+            console.log(`${students[i].name}:${grade}`);
+        }
+
+        //5-c
+        let total = 0;
+
+        students.forEach(student => {
+            total += student.score;
+        });
+
+        const average = total / students.length;
+        console.log(`平均点は${average}点です`);
+
+
+        //問5ここまで
+
+        //問6.
+
+        const animals = [
+            { name: "ライオン", type: "哺乳類", age: 5 },
+            { name: "インコ", type: "鳥類", age: 2 },
+            { name: "ワニ", type: "爬虫類", age: 12 },
+            { name: "ゾウ", type: "哺乳類", age: 10 },
+            { name: "フラミンゴ", type: "鳥類", age: 4 },
+            { name: "カメ", type: "爬虫類", age: 6 }
+        ];
+
+        //___の箇所を適切な語句に書き替えコードを完成させよう
+        //尚、解答に際しコメントアウト記号//を削除すること
+
+        const list = document.querySelector("#animal-list");
+
+        animals.forEach(animal => {
+            if (animal.age >= 5) {
+                const li = document.createElement("li");
+                li.textContent = `${animal.name}（${animal.type}）：${animal.age}歳`;
+                list.appendChild(li);
+            }
+        });
+
+        //問6ここまで
+
+    </script>
+
+</body>
+
+</html>
