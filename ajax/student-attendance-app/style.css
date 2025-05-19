@@ -1,0 +1,18 @@
+@charset 'utf-8';
+
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.present {
+    color: green;
+}
+
+.absent {
+    color: red;
+}
